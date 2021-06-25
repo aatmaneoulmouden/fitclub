@@ -1,0 +1,92 @@
+/* ===== SWITCH BETWEEN NAV ITEMS ===== */
+var navItem = document.querySelectorAll('.nav_item'),
+    navLink = document.querySelectorAll('.nav_item .nav_link');
+
+for(i=0; i<navItem.length; i++){
+    navItem[i].onclick = function(){
+        for(i=0; i<navItem.length; i++){
+            navItem[i].classList.remove('active_item');
+        }
+        this.classList.add('active_item');
+
+        for(i=0; i<navLink.length; i++){
+            navLink[i].classList.remove('active');
+        }
+    }
+}
+
+/* ===== SCROLLING STYLES ===== */
+window.onscroll = function(){
+    let 
+        header = document.getElementById('header'),
+        logo = document.getElementById('logo'),
+        navLink = document.querySelectorAll('.main_link'),
+        toTop = document.getElementById('to-top');
+
+
+    /* when we scrolling */
+    if(document.scrollTop > 50 || document.documentElement.scrollTop > 50){
+        header.classList.add('header_onscroll');
+        toTop.style.display = 'flex';
+    }
+    else{
+        header.classList.remove('header_onscroll');
+        toTop.style.display = 'none';
+    }
+
+    /* if we already scroll change color of logo and nav items */
+    if(header.classList.contains('header_onscroll')){
+        logo.style.color = '#262626';
+
+        for(i=0; i<navLink.length; i++){
+            navLink[i].style.color = '#262626';
+        }
+    }
+    else{
+        logo.style.color = '#E6E6E6';
+
+        for(i=0; i<navLink.length; i++){
+            navLink[i].style.color = '#E6E6E6';
+        }
+    }
+
+    /* when we scrolling and we have active link add the orange color to the link */
+    for(i=0; i<navLink.length; i++){
+        if(navLink[i].classList.contains('active')){
+            navLink[i].style.color = '#d24232';
+        }
+    }
+
+    toTop.onclick = function(){
+        document.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
+}
+
+/* ===== SWITCH BETWEEN NAV ITEMS ===== */
+var navItem = document.querySelectorAll('.nav_item'),
+    navLink = document.querySelectorAll('.nav_item .nav_link');
+
+for(i=0; i<navItem.length; i++){
+    navItem[i].onclick = function(){
+        for(i=0; i<navItem.length; i++){
+            navItem[i].classList.remove('active_item');
+        }
+        this.classList.add('active_item');
+
+        for(i=0; i<navLink.length; i++){
+            navLink[i].classList.remove('active');
+        }
+    }
+}
+
+
+/* ===== SHOW AND HIDE NAVBAR ===== */
+var toggleBtn = document.getElementById('menu-toggle');
+
+toggleBtn.onclick = function(){
+    var navBar = document.getElementById('nav-menu');
+
+    this.classList.toggle('fa-times');
+    navBar.classList.toggle('show_menu');
+}
