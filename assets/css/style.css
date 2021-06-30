@@ -273,6 +273,8 @@ img{
     }
 
     .nav_link{
+        width: 100%; /* add on 30 - 06 - 21 */
+        display: block; /* add on 30 - 06 - 21 */
         color: var(--black-color);
     }
   
